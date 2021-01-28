@@ -1,0 +1,18 @@
+{
+    "$schema" : "http://json-schema.org/draft-04/schema#",
+    "title": "update-calorie",
+    "type":"object",
+    "properties": {
+        "name":{
+            "type":"string"
+        },
+        "calorie":{
+            "type":"string"
+        }
+    },
+    "required":[
+        "name",
+        "calorie"
+    ],
+    "additionalProperties": false
+}

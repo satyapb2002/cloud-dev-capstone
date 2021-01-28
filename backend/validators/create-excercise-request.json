@@ -1,0 +1,18 @@
+{
+    "$schema" : "http://json-schema.org/draft-04/schema#",
+    "title": "create-excercise",
+    "type":"object",
+    "properties": {
+        "name":{
+            "type":"string"
+        },
+        "calorie":{
+            "type":"string"
+        }
+    },
+    "required":[
+        "name",
+        "calorie"
+    ],
+    "additionalProperties": false
+}
