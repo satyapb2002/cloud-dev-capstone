@@ -1,5 +1,5 @@
 service:
-  name: udacity-developer-capstone-backend
+  name: udacity-developer-satya-capstone
 
 plugins:
   - serverless-webpack
@@ -40,8 +40,8 @@ provider:
     minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
-    EXCERCISE_TABLE: capstone-${self:provider.stage}
-    EXCERCISE_BUCKET: udacity-capstone-${self:provider.stage}
+    EXCERCISE_TABLE: excercise-capstone-${self:provider.stage}
+    EXCERCISE_BUCKET: excercise-capstone-${self:provider.stage}
     USER_ID_INDEX: userId
   tracing:
     lambda: true
@@ -229,6 +229,7 @@ functions:
       - Effect: Allow
         Action:
           - s3:PutObject
+          - s3:GetObject
         Resource: arn:aws:s3:::${self:provider.environment.EXCERCISE_BUCKET}/*
       - Effect: Allow
         Action:
@@ -267,7 +268,7 @@ resources:
         AttributeDefinitions:
           - AttributeName: excerciseId
             AttributeType: S
-          - AttributeName: excerciseId
+          - AttributeName: userId
             AttributeType: S
         KeySchema:
           - AttributeName: excerciseId
