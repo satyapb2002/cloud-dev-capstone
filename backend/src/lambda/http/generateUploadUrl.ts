@@ -20,31 +20,36 @@ const authHelper = new AuthHelper()
  * @param event API getway Event
  */
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    
+     logger.info(`${event.pathParameters.excerciseId}`)    
     // get excercise id from path parameters
-    const iexcerciseId = event.pathParameters.excerciseId
+    const excerciseId = event.pathParameters.excerciseId
     
     // get user id using JWT from Authorization header
     const userId = authHelper.getUserId(event.headers['Authorization'])
  
+     logger.info(`${userId}`)    
     // get excercise item if any
     const item = await excercisesAccess.getExcerciseById(excerciseId)
 
+    logger.info('step1')    
     // validate excercise already exists
     if(item.Count == 0){
         logger.error(`user ${userId} requesting put url for non exists excercise with id ${excerciseId}`)
         return apiResponseHelper.generateErrorResponse(400,'Excercise not exists')
     }
 
+    logger.info('step2')    
     // validate excercise belong to authorized user
     if(item.Items[0].userId !== userId){
         logger.error(`user ${userId} requesting put url excercise does not belong to his account with id ${excerciseId}`)
         return apiResponseHelper.generateErrorResponse(400,'Excercise does not belong to authorized user')
     }
     
+    logger.info('step3')    
     // Generate S3 pre-signed url for this excercise 
     const url = new StorageHelper().getPresignedUrl(excerciseId)
 
+    logger.info(`${url}`)    
     
     return apiResponseHelper
             .generateDataSuccessResponse(200,"uploadUrl",url)
