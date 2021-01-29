@@ -51,8 +51,9 @@ export class EditExcercise extends React.PureComponent<
       }
 
       this.setUploadState(UploadState.FetchingPresignedUrl)
+      //alert(this.props.match.params.excerciseId)
       const uploadUrl = await getUploadUrl(this.props.auth.getIdToken(), this.props.match.params.excerciseId)
-
+      //alert(uploadUrl)
       this.setUploadState(UploadState.UploadingFile)
       await uploadFile(uploadUrl, this.state.file)
 

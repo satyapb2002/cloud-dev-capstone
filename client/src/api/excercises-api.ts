@@ -61,6 +61,7 @@ export async function getUploadUrl(
   idToken: string,
   excerciseId: string
 ): Promise<string> {
+	//alert(`${apiEndpoint}/excercises/${excerciseId}/attachment`)
   const response = await Axios.post(`${apiEndpoint}/excercises/${excerciseId}/attachment`, '', {
     headers: {
       'Content-Type': 'application/json',
