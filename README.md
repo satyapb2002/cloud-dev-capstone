@@ -29,7 +29,7 @@ The `client` folder contains a web application that can use the API developed in
 This frontend works with the serverless backend which is already deployed. `client/src/config.ts` file includes required authantication and endpoint url information
 
 ```ts
-export const apiEndpoint = 'https://hq718d33ab.execute-api.us-east-1.amazonaws.com/dev'
+export const apiEndpoint = 'https://2hk190nrea.execute-api.us-east-1.amazonaws.com/dev'
 
 export const authConfig = {
   domain: 'dev-zvgieoe9.us.auth0.com',
@@ -44,7 +44,7 @@ export const authConfig = {
 
 The application is deployed with the following commands: 
 
-apiEndpoint = 'https://hq718d33ab.execute-api.us-east-1.amazonaws.com/dev'
+apiEndpoint = 'https://2hk190nrea.execute-api.us-east-1.amazonaws.com/dev'
 
 ```
 cd backend
