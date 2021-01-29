@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Form, Button } from 'semantic-ui-react'
 import Auth from '../auth/Auth'
-import { getUploadUrl, uploadFile } from '../api/excercisess-api'
+import { getUploadUrl, uploadFile } from '../api/excercises-api'
 
 enum UploadState {
   NoUpload,
   FetchingPresignedUrl,
-  UploadingFile,
+  UploadingFile
 }
 
 interface EditExcerciseProps {

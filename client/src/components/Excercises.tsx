@@ -51,7 +51,7 @@ export class Excercises extends React.PureComponent<ExcercisesProps, ExcercisesS
         alert('Please enter excercise name')
         return
       }
-      const calorie = 0
+      const calorie = '0'
       const newExcercise = await createExcercise(this.props.auth.getIdToken(), {
         name: this.state.newExcerciseName,
         calorie 
@@ -92,11 +92,11 @@ export class Excercises extends React.PureComponent<ExcercisesProps, ExcercisesS
     try {
       const excercises = await getExcercises(this.props.auth.getIdToken())
       this.setState({
-        excercisess: excercisess,
-        loadingExcercisess: false
+        excercises: excercises,
+        loadingExcercises: false
       })
     } catch (e) {
-      alert(`Failed to fetch excercisess: ${e.message}`)
+      alert(`Failed to fetch excercises: ${e.message}`)
     }
   }
 
